@@ -8,22 +8,35 @@ html
     meta(name='csrf-token', content=_csrf)
     title #{title}
     link(rel='shortcut icon', href='/favicon.png')
-    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet' type='text/css' href='/css/main.css')
+    link(rel='stylesheet' type='text/css' href='/fonts/line-icons.css')
+    link(rel='stylesheet' type='text/css' href='/css/themes/bolt/menu_sideslide.css')
+    link(rel='stylesheet' type='text/css' href='/css/themes/bolt/responsive.css')
+    link(rel='stylesheet' type='text/css' href='/css/themes/bolt/slicknav.css')
+    link(rel='stylesheet' type='text/css' href='/css/themes/bolt/vegas.min.css')
     block head
 
   body
     include partials/header
 
-    .container
-      include partials/flash
-      block content
+    include partials/flash
+    block content
 
     include partials/footer
 
     script(src='/js/lib/jquery.min.js')
     script(src='/js/lib/popper.min.js')
     script(src='/js/lib/bootstrap.min.js')
-    script(src='/js/main.js')
+    script(src='/js/lib/vegas.min.js')
+    script(src='/js/lib/jquery.countdown.min.js')
+    script(src='/js/lib/menu.js')
+    script(src='/js/lib/classie.js')
+    script(src='/js/lib/scrolling-nav.js')
+    script(src='/js/lib/jquery.nav.js')
+    script(src='/js/lib/jquery.easing.min.js')
+    script(src='/js/lib/wow.js')
+    script(src='/js/lib/jquery.slicknav.js')
+    script(src='/js/lib/main.js')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     script.

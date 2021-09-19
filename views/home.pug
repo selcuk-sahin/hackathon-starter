@@ -1,27 +1,224 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
-  .row
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
+  section.intro
+    .container
+      .row.text-center
+        .col-md-12.col-sm-12.col-xs-12
+          .heading-count
+            h2 Coming Soon
+            p Our exciting new website is coming soon! Check back later...
+        .col-md-12.col-sm-12.col-xs-12
+          .row.countdown.justify-content-center
+            #clock.time-count
+          a.btn.btn-common(href='#contact') Contact Us
+          a.btn.btn-border(href='#team') About Us
+          .social.mt-4
+            a.facebook(href='#')
+              i.lni-facebook-filled
+            a.twitter(href='#')
+              i.lni-twitter-filled
+            a.instagram(href='#')
+              i.lni-instagram-filled
+            a.google(href='#')
+              i.lni-google-plus
+          a.target-scroll.page-scroll(href='#services')
+            i.lni-chevron-down
+  //- // Intro Section End
+  section#services.section-padding
+    .container
+      .row.justify-content-center
+        .col-md-8.col-lg-8.col-xs-12.text-center
+          h6.subtitle
+            | What We Do
+          h2.section-title
+            | We Provide Creative Solutions
+          .section-info
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla neque
+            | tempore rerum dolore accusamus, eum, officia nostrum sequi explicabo aspernatur asperiores.
+      .row
+        .col-lg-4.col-md-6.col-xs-12.fadeInUp(data-animation='fadeInUp')
+          .services-item
+            .icon
+              i.lni-brush
+            h3
+              a(href='#') Web Design
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.
+        .col-lg-4.col-md-6.col-xs-12.fadeInUp(data-animation='fadeInUp' data-delay='300')
+          .services-item
+            .icon
+              i.lni-mobile
+            h3
+              a(href='#') App Development
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.
+        .col-lg-4.col-md-6.col-xs-12.fadeInUp(data-animation='fadeInUp' data-delay='600')
+          .services-item
+            .icon
+              i.lni-bullhorn
+            h3
+              a(href='#') Internet Marketing
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores incidunt laboriosam harum, voluptatem fugiat perspiciatis.
+  //- // Team Section Start
+  section#team.section-padding
+    .container
+      .row.justify-content-center
+        .col-md-8.col-lg-8.col-xs-12.text-center
+          h6.subtitle
+            | Meet Our
+          h2.section-title
+            | Our awesome team
+          .section-info
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla neque
+            | tempore rerum dolore accusamus, eum, officia nostrum sequi explicabo aspernatur asperiores.
+      .row
+        .col-sm-6.col-md-6.col-lg-3
+          // Team Item Starts
+          .team-item.text-center
+            .team-img
+              img.img-fluid(src='/img/team/team-01.jpg' alt='')
+              .team-overlay
+                .overlay-social-icon.text-center
+                  ul.social-icons
+                    li
+                      a(href='#')
+                        i.lni-facebook-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-twitter-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-instagram-filled(aria-hidden='true')
+            .info-text
+              h3
+                a(href='#') Emilly Williams
+              p Product Designer
+          // Team Item Ends
+        .col-sm-6.col-md-6.col-lg-3
+          // Team Item Starts
+          .team-item.text-center
+            .team-img
+              img.img-fluid(src='/img/team/team-02.jpg' alt='')
+              .team-overlay
+                .overlay-social-icon.text-center
+                  ul.social-icons
+                    li
+                      a(href='#')
+                        i.lni-facebook-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-twitter-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-instagram-filled(aria-hidden='true')
+            .info-text
+              h3
+                a(href='#') Patric Green
+              p Front-end Developer
+          // Team Item Ends
+        .col-sm-6.col-md-6.col-lg-3
+          // Team Item Starts
+          .team-item.text-center
+            .team-img
+              img.img-fluid(src='/img/team/team-03.jpg' alt='')
+              .team-overlay
+                .overlay-social-icon.text-center
+                  ul.social-icons
+                    li
+                      a(href='#')
+                        i.lni-facebook-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-twitter-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-instagram-filled(aria-hidden='true')
+            .info-text
+              h3
+                a(href='#') Paul Kowalsy
+              p Lead Designer
+          // Team Item Ends
+        .col-sm-6.col-md-6.col-lg-3
+          // Team Item Starts
+          .team-item.text-center
+            .team-img
+              img.img-fluid(src='/img/team/team-04.jpg' alt='')
+              .team-overlay
+                .overlay-social-icon.text-center
+                  ul.social-icons
+                    li
+                      a(href='#')
+                        i.lni-facebook-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-twitter-filled(aria-hidden='true')
+                    li
+                      a(href='#')
+                        i.lni-instagram-filled(aria-hidden='true')
+            .info-text
+              h3
+                a(href='#') Jhon Doe
+              p Back-end Developer
+          // Team Item Ends
+    //- // Team Section End
+    //- // Contact Section Start
+  section#contact.section-padding
+    .container
+      .row.justify-content-center
+        .col-md-8.col-lg-8.col-xs-12.text-center
+          h6.subtitle
+            | Connect With Us
+          h2.section-title
+            | Get in Touch
+          .section-info
+            | Lorem ipsum dolor sit amet, ut consul mediocrem abhorreant cum. Id eum dolores.
+            | Delicatissimi ne pri modo accusamus. Augue vitae primis antiopam nec ex rationibus.
+      form
+        .row
+          // Contact form
+          .col-md-8
+            .row
+              .col-md-6
+                label Your Name
+                input#name.form-control(type='text' name='email' required='' data-error='Please enter your name')
+                .help-block.with-errors
+              .col-md-6
+                label Your E-mail
+                input#email.form-control(type='email' name='email' required='' data-error='Please enter your Email')
+                .help-block.with-errors
+            .row
+              .col-md-12
+                label Your Message
+                textarea#message.form-control(rows='4' name='message' required='' data-error='Write your message')
+            // Submit Button
+            .row
+              .col-md-12
+                button#form-submit.btn.btn-common(type='submit')
+                  i.fa.fa-paper-plane(aria-hidden='true')
+                  |   Send Message
+                #msgSubmit.h3.text-center.hidden
+          // Contact info
+          .col-md-4.contact-right
+            .contact-box
+              h4 Address
+              p
+                | 1900 Pico Blvd, New York 
+                br
+                |  Centernial, colorado
+            .contact-box
+              h4 Call Us
+              p +48 123 456 789
+            .contact-box
+              h4 Say Hello
+              p
+                a(href='#') info@example.com
+    //- // Contact Section End
+  
+  //- // Go to Top Link
+  a.back-to-top(href='#')
+    i.lni-chevron-up
+  //- // Preloader
+  #preloader
+    #loader-1.loader

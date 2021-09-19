@@ -1,31 +1,45 @@
-.navbar.navbar-light.fixed-top.navbar-expand-lg.bg-light
-  .container
-    a.navbar-brand(href='/')
-      i.fas.fa-cube
-      | Avocados
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-      span.sr-only Toggle navigation
-      span.navbar-toggler-icon
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
-          a.nav-link(href='/contact') Contact
-      ul.nav.navbar-nav.ml-auto
-        if !user
-          li.nav-item(class=(title === 'Login') ? 'active' : undefined)
-            a.nav-link(href='/login') Login
-          li.nav-item(class=(title === 'Create Account') ? 'active' : undefined)
-            a.nav-link(href='/signup') Create Account
-        else
-          li.dropdown(class=(title === 'Account Management') ? 'active' : undefined).nav-item
-            a.dropdown-toggle.nav-link(href='#', data-toggle='dropdown')
-              if user.profile.picture
-                img(src=user.profile.picture)
-              else
-                img(src=user.gravatar(60))
-              span= user.profile.name || user.email || user.id
-              i.caret
-            div.dropdown-menu
-              a.dropdown-item(href='/account') My Account
-              div.dropdown-divider
-              a.dropdown-item(href='/logout') Logout
+header#header-wrap
+  .menu-wrap
+    .menu.navbar
+      .menu-list.navbar-collapse
+        ul.onepage-nev.navbar-nav
+          li.nav-item.active
+            a.nav-link(href='#header-wrap') Home
+          li.nav-item
+            a.nav-link(href='#services') Services
+          li.nav-item
+            a.nav-link(href='#team') Team
+          li.nav-item
+            a.nav-link(href='#contact') Contact
+    button#close-button.close-button
+      i.lni-close
+  // Navbar Start
+  nav.navbar.navbar-expand-lg.fixed-top.scrolling-navbar.menu-bg
+    .container
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#main-navbar' aria-controls='main-navbar' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+          span.lni-menu
+          span.lni-menu
+          span.lni-menu
+        a.navbar-brand(href='index.html')
+          img(src='assets/img/logo.png' alt='')
+      #main-navbar.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto.w-100.justify-content-end.clearfix
+          li#open-button.nav-item
+            a.nav-link
+              i.lni-menu
+    // Mobile Menu Start
+    ul.mobile-menu
+      li
+        a(href='#header-wrap') Home
+      li
+        a(href='#services') Services
+      li
+        a(href='#team') Team
+      li
+        a(href='#contact') Contact
+    // Mobile Menu End
+  // Navbar End
+// Intro Section Start
