@@ -1,4 +1,68 @@
-const axios = require('axios');
+const axios = require('axios').default;
+
+exports.postMint = async (req, res, next) => {
+  console.log("post Mint")
+  if (typeof req.body.amount === 'undefined') {
+    // The parameter is missing, example response...
+    res.status(400).json({
+      status: 400,
+      success: false,
+      message: "Please specify a valid mint amount!",
+      data: {}
+    });
+  }
+
+  const countnft = req.body.amount;
+  const lovelace = +process.env.NFT_PRICE_LOVELACE * +countnft
+  const url = `https://api.nft-maker.io/GetAddressForRandomNftSale/${process.env.NFT_MAKER_KEY}/${process.env.NFT_MAKER_PROJECTID}/${countnft}/${lovelace}`;
+  try {
+    axios.get(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Connection': 'keep-alive'
+      }
+    }).then(nftMakerResponse=>{
+      if(nftMakerResponse.status === 200){
+        const message = `Successfully reserved ${countnft} NFT/s.`;
+        const userResponse = {
+          status: 200,
+          success: true,
+          message: message,
+          data: nftMakerResponse.data 
+        }
+        res.status(200).send(userResponse);
+      }
+    }).catch(error => {
+      if(error.status === 404 || error.status === 406){
+        const userResponse = {
+          status: error.status,
+          success: false,
+          message: error.status === 404 ? 'Sorry! All NFTs are minted' : 'Error in request!',
+          data: {}
+        }
+        res.status(error.status).send(userResponse);
+      }else{
+        const userResponse = {
+          status: error.status,
+          success: false,
+          message: error.data?.errorMessage ?? "Server Error",
+          data: {}
+        }
+        res.status(error.status).send(userResponse);
+      }
+    })
+
+  } catch (error) {
+    const userResponse = {
+      status: 500,
+      success: false,
+      message: "Server Error",
+      data: {}
+    }
+    res.status(error.status).send(userResponse);
+  }
+
+}
 
 /**
  * GET /api

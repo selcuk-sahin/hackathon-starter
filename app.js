@@ -24,6 +24,7 @@ dotenv.config({ path: '.env' });
  * Controllers (route handlers).
  */
 const homeController = require('./controllers/home');
+const apiController = require('./controllers/api');
 
 /**
  * Create Express server.
@@ -96,6 +97,11 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
  * Primary app routes.
  */
 app.get('/', homeController.index);
+
+/**
+ * Backend route for NFT-maker
+ */
+app.post('/mint', lusca({ csrf: true }), apiController.postMint);
 
 /**
  * Error Handler.

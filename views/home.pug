@@ -1,5 +1,13 @@
 extends layout
 
+//- form(action='/mint', method='POST')
+//-   p
+//-     | amount: 
+//-     input(type='text', name='amount', value='1')
+//-     | lol:
+//-     
+//-   input(type='submit', value='Submit')
+
 block content
   section.intro
     .container
@@ -11,7 +19,12 @@ block content
         .col-md-12.col-sm-12.col-xs-12
           .row.countdown.justify-content-center
             #clock.time-count
-          a.btn.btn-common(href='#contact') Contact Us
+          include partials/flash
+          a.btn.btn-common(onclick='mint()') Mint One Token
+          form(action='#', method='POST' id="mintForm" #mintForm)
+            input(type='hidden', name='_csrf', id="_csrf" value=_csrf)
+            input(type='number', name='amount', id="amount", value='1', min="1",step="1")
+            input(type='submit', value='Submit' #submitMintButton)
           a.btn.btn-border(href='#team') About Us
           .social.mt-4
             a.facebook(href='#')
