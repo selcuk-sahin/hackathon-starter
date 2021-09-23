@@ -3,6 +3,9 @@ $(document).ready(() => {
 
 });
 
+// todo add loading
+// todo add cancel button logic
+// todo add clipboard functionality
 function mint() {
   const mintForm = document.querySelector('form#mintForm');
   const amountSelect = mintForm.querySelector('select#amount');
@@ -33,7 +36,12 @@ function mint() {
         text: res.message,
         icon: 'success'
       })
-      res.data.paymentAddress
+      const infoDiv = document.querySelector('div.mintAddressDiv');
+      if(infoDiv.classList.contains('d-none')){
+        infoDiv.classList.remove('d-none');
+      }
+      const infoMessage = infoDiv.querySelector('span.mintAddressText');
+      infoMessage.innerHTML = res.data.paymentAddress;
       console.log("Server RESPONSE = >", res);
     });
 }

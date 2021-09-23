@@ -21,7 +21,7 @@ block content
             #clock.time-count
           //- include partials/flash
       .row
-        .col.col-md-6.col-sm-6.col-xs-6.text-right
+        .col.col-md-6.col-sm-6.col-xs-6.text-right.px-0
           form(action='#', method='POST' id="mintForm" #mintForm)
             input(type='hidden', name='_csrf', id="_csrf" value=_csrf)
             select.custom-select.custom-select-lg.mb-3.custom-select-sm(name='amount', id="amount", onchange="onAmountChange(this.options[this.selectedIndex].value)")
@@ -37,10 +37,23 @@ block content
         .col-md-12.col-sm-12.col-xs-12
           //- a.btn.btn-border(href='#team') About Us
           //- a.btn.btn-border(href='#team') About Us
-          .mt-4.mintAddressDiv.container.d-none
+          //- .mt-4.mintAddressDiv.container.d-none
+          .mt-4.mintAddressDiv.container
             .row.text-center
-              .col-md-12.col-sm-12.col-xs-12
-                span.p4.row.mintAddressText Pay XXX ADA to XXXXXXXXX adddress to get your NFT!
+              .col-md-12.col-sm-12.col-xs-12.p-3
+                .d-block
+                  span Pay &nbsp;
+                  strong Exactly &nbsp;
+                  span(id="mintFee") 150 ₳
+                .d-block
+                  span To:&nbsp;
+                  span(id='mintAddressText')
+                  strong addr112838102738018test
+                  a.btn.btn-border.m-0.btn-sm.btn-secondary
+                    i.lni.lni-clipboard
+                .d-block
+                  span(id="mintExpire") Until
+                  strong  23.20:19
               .col-md-12.col-sm-12.col-xs-12
                 a.btn.btn-border(href='#team') Cancel
       .row.text-center.justify-content-center

@@ -40,6 +40,24 @@ form#mintForm{
     }
 }
 
+.clipboard-icon{
+    display: inline-block;
+    color: #fff;
+    // margin-right: 5px;
+    width: 35px;
+    line-height: 35px;
+    font-size: 35px;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+}
+
+.clipboard-icon .lni-clipboard:hover {
+    color: #3B5998;
+}
+
 
 // // Scaffolding
 // // -------------------------
