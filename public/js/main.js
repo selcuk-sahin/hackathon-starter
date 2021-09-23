@@ -4,9 +4,10 @@ $(document).ready(() => {
 });
 
 function mint() {
-  let mintForm = document.querySelector('form#mintForm');
-  let amount = mintForm.querySelector('input#amount').value;
-  let _csrf = mintForm.querySelector('input#_csrf').value;
+  const mintForm = document.querySelector('form#mintForm');
+  const amountSelect = mintForm.querySelector('select#amount');
+  const amount = amountSelect.options[amountSelect.selectedIndex].value;
+  const _csrf = mintForm.querySelector('input#_csrf').value;
 
   const postBody = {
     amount: amount,
@@ -20,7 +21,24 @@ function mint() {
     }
   })
     .then(response => response.json())
-    .then(json => {
-      console.log("Server RESPONSE = >", json);
+    .then(res => {
+      const customAlert = Swal.mixin({
+        showDenyButton: false,
+        showCloseButton: true,
+        confirmButtonText: 'Okay',
+        denyButtonText: 'Cancel',
+      });      
+      customAlert.fire({ 
+        title: 'Success!',
+        text: res.message,
+        icon: 'success'
+      })
+      res.data.paymentAddress
+      console.log("Server RESPONSE = >", res);
     });
+}
+
+function onAmountChange(amount){
+  const mintButton = document.querySelector('a#mintButton');
+  mintButton.querySelector('span').innerHTML = `Mint ${amount} Token`
 }

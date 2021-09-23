@@ -16,6 +16,30 @@
 @import "themes/bolt/vegas.min.css";
 @import "../fonts/line-icons.css";
 
+.mintAddressDiv{
+    position: relative;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #E91E63;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 50px -10px #000;
+}
+span.mintAddressText{
+    font-size: 16px;
+    padding: 15px;
+    display: block;
+}
+
+form#mintForm{
+    padding: 8px; // Match select with btn
+    padding-right: 0px;
+    select{
+        min-width: 30% !important;
+        width: unset !important;
+    }
+}
+
 
 // // Scaffolding
 // // -------------------------
