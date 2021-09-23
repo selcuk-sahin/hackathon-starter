@@ -1,5 +1,11 @@
 const axios = require('axios').default;
 
+/**
+ * Problem when sending 1.5 should be handled
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.postMint = async (req, res, next) => {
   console.log("post Mint")
   if (typeof req.body.amount === 'undefined') {
@@ -13,7 +19,8 @@ exports.postMint = async (req, res, next) => {
   }
 
   const countnft = req.body.amount;
-  const lovelace = +process.env.NFT_PRICE_LOVELACE * +countnft
+  // 3 fiyatına 5 tane MİNT
+  const lovelace = +countnft !== 5 ? +process.env.NFT_PRICE_LOVELACE_SINGLE * +countnft : +process.env.NFT_PRICE_LOVELACE_FIVE;
   const url = `https://api.nft-maker.io/GetAddressForRandomNftSale/${process.env.NFT_MAKER_KEY}/${process.env.NFT_MAKER_PROJECTID}/${countnft}/${lovelace}`;
   try {
     axios.get(url, {
