@@ -39,6 +39,7 @@ function mint() {
 }
 
 function onAmountChange(amount){
+  if(!amount){return;}
   const mintButton = document.querySelector('a#mintButton');
-  mintButton.querySelector('span').innerHTML = `Mint ${amount} Token`
+  mintButton.querySelector('span').innerHTML = `Mint ${amount} ${amount === '1' ? 'Token' : 'Tokens' }`;
 }

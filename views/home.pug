@@ -19,24 +19,42 @@ block content
         .col-md-12.col-sm-12.col-xs-12
           .row.countdown.justify-content-center
             #clock.time-count
-          include partials/flash
-          a.btn.btn-common(onclick='mint()') Mint One Token
+          //- include partials/flash
+      .row
+        .col.col-md-6.col-sm-6.col-xs-6.text-right
           form(action='#', method='POST' id="mintForm" #mintForm)
             input(type='hidden', name='_csrf', id="_csrf" value=_csrf)
-            input(type='number', name='amount', id="amount", value='1', min="1",step="1")
-            input(type='submit', value='Submit' #submitMintButton)
-          a.btn.btn-border(href='#team') About Us
-          .social.mt-4
-            a.facebook(href='#')
-              i.lni-facebook-filled
-            a.twitter(href='#')
-              i.lni-twitter-filled
-            a.instagram(href='#')
-              i.lni-instagram-filled
-            a.google(href='#')
-              i.lni-google-plus
-          a.target-scroll.page-scroll(href='#services')
-            i.lni-chevron-down
+            select.custom-select.custom-select-lg.mb-3.custom-select-sm(name='amount', id="amount", onchange="onAmountChange(this.options[this.selectedIndex].value)")
+              option(value='1' selected='1') 1
+              option(value='2') 2
+              option(value='3') 3
+              option(value='4') 4
+              option(value='5') 5
+            input(type='submit', value='Submit' #submitMintButton hidden)
+        .col.col-md-6.col-sm-6.col-xs-6.text-left
+          a.btn.btn-common(id="mintButton", onclick='mint()' style='padding: 12px 20px;margin-left: 0px; min-width: 135px;')
+            span Mint 1 Token
+        .col-md-12.col-sm-12.col-xs-12
+          //- a.btn.btn-border(href='#team') About Us
+          //- a.btn.btn-border(href='#team') About Us
+          .mt-4.mintAddressDiv.container.d-none
+            .row.text-center
+              .col-md-12.col-sm-12.col-xs-12
+                span.p4.row.mintAddressText Pay XXX ADA to XXXXXXXXX adddress to get your NFT!
+              .col-md-12.col-sm-12.col-xs-12
+                a.btn.btn-border(href='#team') Cancel
+      .row.text-center.justify-content-center
+        .social.mt-4
+          a.facebook(href='#')
+            i.lni-facebook-filled
+          a.twitter(href='#')
+            i.lni-twitter-filled
+          a.instagram(href='#')
+            i.lni-instagram-filled
+          a.google(href='#')
+            i.lni-google-plus
+        a.target-scroll.page-scroll(href='#services')
+          i.lni-chevron-down
   //- // Intro Section End
   section#services.section-padding
     .container
