@@ -41,19 +41,17 @@ block content
           .mt-4.mintAddressDiv.container
             .row.text-center
               .col-md-12.col-sm-12.col-xs-12.p-3
-                .d-block
-                  span Pay &nbsp;
-                  strong Exactly &nbsp;
-                  span(id="mintFee") 150 ₳
-                .d-block
-                  span To:&nbsp;
-                  span(id='mintAddressText')
-                  strong addr112838102738018test
-                  a.btn.btn-border.m-0.btn-sm.btn-secondary
+                .d-block.mt-1
+                  span.d-block Pay Exactly
+                  span.d-block(id="mintFee") 150 ₳
+                .d-block.mt-1
+                  span.d-block To:&nbsp;
+                  span.d-block(id='mintAddressText')
+                  a.btn.btn-border.m-0.btn-sm.btn-secondary.checkmark(onclick='clipBoard(this.parentNode)')
                     i.lni.lni-clipboard
-                .d-block
-                  span(id="mintExpire") Until
-                  strong  23.20:19
+                .d-block.mt-1
+                  span.d-block Until
+                  span.d-block(id="mintExpire") 23.20:19
               .col-md-12.col-sm-12.col-xs-12
                 a.btn.btn-border(href='#team') Cancel
       .row.text-center.justify-content-center
